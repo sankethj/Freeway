@@ -8,6 +8,7 @@
 > Before using the software, the user must agree to the EULA when prompted
 
 <h2><strong>1. Overview</strong></h2>
+
 **Freeway** is a Python scapy-based tool for WiFi penetration that aim to help ethical hackers and pentesters develop their skills and knowledge in auditing and securing home or enterprise networks.
 
 <h2><strong>2. Features</strong></h2>

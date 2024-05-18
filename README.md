@@ -8,7 +8,7 @@
 > Before using the software, the user must agree to the EULA when prompted
 
 <h2><strong>1. Overview</strong></h2>
-Freeway is a Python scapy-based tool for WiFi penetration that aim to help ethical hackers and pentesters develop their skills and knowledge in auditing and securing home or enterprise networks.
+**Freeway** is a Python scapy-based tool for WiFi penetration that aim to help ethical hackers and pentesters develop their skills and knowledge in auditing and securing home or enterprise networks.
 
 <h2><strong>2. Features</strong></h2>
 
@@ -42,7 +42,7 @@ Navigate to the cloned repository:
 
 <strong>A:</strong> Install dependencies and Freeway.
 
-<sub>This will allow launching the tool from anywhere</sub>
+<sub>This will allow to launch the tool from anywhere</sub>
 
     sudo pip install .
 
@@ -58,7 +58,7 @@ Navigate to the cloned repository:
 This tool comes with its own **command line interface (CLI)** and can be run without specifying any additional arguments.
 
 <details>
-<summary>Click to expand the CLI usage</summary>
+<summary><strong>Click to expand the CLI usage</strong></summary>
 <br />
 
     sudo Freeway
@@ -78,7 +78,7 @@ Select the feature and parameter(s):
 ...and it can also be run with them:
 
 <details>
-<summary>Click to expand the arguments usage</summary>
+<summary><strong>Click to expand the arguments usage</strong></summary>
 <br />
 
     sudo Freeway -i wlan2 -a monitor -p 1,2,a

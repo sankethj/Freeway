@@ -1,7 +1,7 @@
 <div align="center">
   <img src="https://github.com/FLOCK4H/Freeway/assets/161654571/85eb939d-0154-4767-8aab-c3a5e29b1d6f" alt="Freeway logo" />
 
-  $${\color{magenta}Freeway\ for\ Network\ Pentesting}$$
+  $${\color{red}Freeway\ for\ Network\ Pentesting}$$
 </div>
 
 > [!NOTE]
@@ -76,7 +76,7 @@ Select the feature and parameter(s):
 </details>
 <br />
 
-...and it can also be run with them:
+And with the **additional arguments**, to skip the CLI partially or completely.
 
 <details>
 <summary><strong>Click to expand the arguments usage</strong></summary>

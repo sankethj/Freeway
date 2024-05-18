@@ -19,7 +19,7 @@ Freeway is a Python scapy-based tool for WiFi penetration that aim to help ethic
 - Network Audit
 - Channel Hopper
 
-<h6>Description of the features can be found in Section 6</h6>
+<sub>Description of the features can be found in Section 6</sub>
 
 <h2><strong>3. Preparation</strong></h2>
 
@@ -28,7 +28,7 @@ It is **necessary** to have:
 - An operating system running a Linux distribution.
 - Python 3+ installed.
 
-<h6>Optionally, install Scapy and Rich packages for Python if not installing via pip (see Section 4)</h6>
+<sub>Optionally, install Scapy and Rich packages for Python if not installing via pip (see Section 4)</sub>
 
 <h2><strong>4. Setup</strong></h2>
 
@@ -42,13 +42,13 @@ Navigate to the cloned repository:
 
 <strong>A:</strong> Install dependencies and Freeway.
 
-<h6>This will allow launching the tool from anywhere</h6>
+<sub>This will allow launching the tool from anywhere</sub>
 
     sudo pip install .
 
 <strong>B:</strong> Run without installation using Python.
 
-<h6>Must be called from the /Freeway directory</h6>
+<sub>Must be called from the /Freeway directory</sub>
 
     sudo pip install scapy rich
     sudo python Freeway
@@ -83,7 +83,7 @@ Select the feature and parameter(s):
 
     sudo Freeway -i wlan2 -a monitor -p 1,2,a
 
-<h6>'-p' is not required with '-a', e.g., this will prompt for parameters to specify in the CLI:</h6>
+<sub>'-p' is not required with '-a', e.g., this will prompt for parameters to specify in the CLI:</sub>
 
     sudo Freeway -i wlan2 -a deauth
 
@@ -130,7 +130,7 @@ In case where Freeway doesn't meet the expectations and was installed via pip, t
 
     sudo pip uninstall 3way
 
-The rename to 3way is done on purpose to 'reserve' the name for the future official pip release as Freeway is taken.
+<sub>The rename to 3way is done on purpose to 'reserve' the name for the future official pip release as Freeway is taken.</sub>
 
 <h2><strong>9. Legal Note</strong></h2>
 

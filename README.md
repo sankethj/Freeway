@@ -1,7 +1,7 @@
 <div align="center">
   <img src="https://github.com/FLOCK4H/Freeway/assets/161654571/85eb939d-0154-4767-8aab-c3a5e29b1d6f" alt="Freeway logo" />
 
-  <h6>Freeway for Network Penetration</h6>
+  $${\color{magenta}Freeway\ for\ Network\ Pentesting}$$
 </div>
 
 > [!NOTE]

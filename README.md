@@ -4,6 +4,14 @@
   $${\color{red}Freeway\ for\ Network\ Pentesting}$$
 </div>
 
+<div align="center">
+
+
+<strong>Read the article about Freeway, now on</strong>
+<a href="https://medium.com/@flytechoriginal/freeway-for-network-pentesting-e97e69e481fc">Medium</a>
+</div>
+<br />
+
 > [!NOTE]
 > Before using the software, the user must agree to the EULA when prompted
 
@@ -133,12 +141,30 @@ In case where Freeway doesn't meet the expectations and was installed via pip, t
 
 <sub>The rename to 3way is done on purpose to 'reserve' the name for the future official pip release as Freeway is taken.</sub>
 
-<h2><strong>9. Legal Note</strong></h2>
+<h2>TODO</h2>
+
+✅ Evil Twin attack
+
+✅ Version & update checker
+
+★ PyPi Release
+
+<h2>Changelog</h2>
+
+> 19.05
+> 1. Fixed rare RuntimeError in deauth.py caused by iterating on dynamicly changing size dictionary
+> 2. Further improvements of beacon packet formatting in beacon_spam.py
+
+<h2>Known Issues</h2>
+
+> 1. Android filters out fake beacon frames (works for Android 5, doesn't on Android 11+, versions below Android 11  and above Android 5 were not tested.)
+
+<h2><strong>Legal Note</strong></h2>
 
 > [!IMPORTANT]
 > Any malicious use of such features should be considered a crime, <br />
 > always assert permission to perform the penetration testing.
 
-<h2><strong>10. License</strong></h2>
+<h2><strong>License</strong></h2>
 
 The distribution of Freeway is regulated by the standard MIT license, users can feel free to use, share and contribute to the repository or report bugs.

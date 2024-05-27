@@ -20,6 +20,8 @@ from FreewayTools.beacon_spam import BeaconSpam
 from FreewayTools.fuzzer import Fuzzer
 from FreewayTools.audit import Audit
 from FreewayTools.hopper import channel_hopper
+from FreewayTools.evil_twin import Cappy, WebServer, shutdown_network, safecall
+from FreewayTools.updater import update
 
 cc = ColorCodes()
 
@@ -93,6 +95,7 @@ script_dir = "/usr/local/share/3way"
 class Welcome:
     def __init__(self, action):
         self.fsecurity = False
+        update()
         self.action = action
         self.norm_logo = f"""{cc.BRIGHT}{cc.CYAN}
                                                    
@@ -139,7 +142,7 @@ class Welcome:
             cprint("1) Users must strictly adhere to local legal guidelines", cc.WHITE)
             cprint("2) Users must not disrupt, introduce chaos, cause damage to others, or to other devices in any circumstances", cc.ORANGE)
             cprint("3) Redistribution of this software must comply with MIT license standards", cc.WHITE)
-            cprint("4) The authors disclaim all liability for any damage caused by the use of this software", cc.ORANGE)
+            cprint("4) The author disclaims all liability for any damage caused by the use of this software", cc.ORANGE)
             cprint("5) In the event of an investigation, the author will not provide assistance to any parties", cc.WHITE)
             cprint("")
             cprint("Remember, the purpose of Freeway is to identify vulnerabilities, not to exploit them!", cc.WHITE)
@@ -202,12 +205,14 @@ class Freewayer:
                 "4": self.start_fuzzing,
                 "5": self.start_audit,
                 "6": self.start_hopper,
+                "7": self.start_evil_twin,
                 "monitor": self.start_monitoring,
                 "deauth": self.start_deauth,
                 "beacon_spam": self.start_beacon_spam,
                 "fuzzer": self.start_fuzzing,
                 "audit": self.start_audit,
-                "hopper": self.start_hopper
+                "hopper": self.start_hopper,
+                "eviltwin": self.start_evil_twin
             }
             self.small_term = self.welcome.columns < 80
             self.logo = f"""{self.short_logo if self.small_term else self.norm_logo}"""
@@ -232,6 +237,7 @@ class Freewayer:
             cprint("4) Packet Fuzzer")
             cprint("5) Network Audit")
             cprint("6) Channel Hopper")
+            cprint("7) Evil Twin")
             eline()
         else:
             cprint(f"1) Packet Monitor  {cc.CYAN}──>{cc.GREEN}  Catch APs, Stations, PMKIDs, Handshakes and more..")
@@ -240,7 +246,7 @@ class Freewayer:
             cprint(f"4) Packet Fuzzer\x20\x20 {cc.CYAN}──>{cc.GREEN}  Inject packets that may cause an AP to crash or freeze")
             cprint(f"5) Network Audit\x20\x20 {cc.CYAN}──>{cc.GREEN}  Try to gather all possible information about specific AP")
             cprint(f"6) Channel Hopper  {cc.CYAN}──>{cc.GREEN}  Hop between channels periodically (run in separate window)")
-            
+            cprint(f"7) Evil Twin       {cc.CYAN}──>{cc.GREEN}  Access Point with Captive Portal to harvest credentials")
             eline()
         option = cinput("Enter option's number", b=True).replace(" ", "")
         return option
@@ -454,6 +460,22 @@ class Freewayer:
         channel_hopper(self.wlan, delay or 1, ran or "1-11")
         cinput("Press enter to go back to Freeway")
         self.act()
+
+    def start_evil_twin(self, parms=None):
+        cappy = Cappy(self.wlan)
+
+        try:
+            iprint("Starting hostapd...")
+            safecall(f"sudo systemctl start hostapd")
+            WebServer(cappy.ip_addr)
+            while True:
+                # Keep the app busy
+                time.sleep(1)
+        except KeyboardInterrupt:
+            print()
+            wprint("Exiting..\n")
+            shutdown_network(cappy.interface, cappy.ip_addr)
+            sys.exit(0)
 
 def parse_arguments():
     parser = argparse.ArgumentParser(description="Freeway for Network Pentesting")
